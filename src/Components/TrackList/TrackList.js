@@ -2,19 +2,21 @@ import React from 'react';
 import './TrackList.css';
 import Track from '../Track/Track.js';
 
-function TrackList() {
-  return (
-    <div className="TrackList">
-      {/*Track.map((track) => {*/}
-       {/* return ( */}
-          <>
-           <Track />
-           <Track />
-           <Track />
-          </>
-        {/*);*/}
-    </div>
-  );
+class TrackList extends React.Component {
+  render() {
+    return (
+      <div class="TrackList">
+        {
+          this.props.tracks.map(track => {
+            return <Track track={track}
+              key={track.id}
+            />
+          })
+
+        }
+      </div>
+    )
+  }
 }
 
 export default TrackList;
