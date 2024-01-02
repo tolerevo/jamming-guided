@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar.js';
 import SearchResults from '../SearchResults/SearchResults.js';
 import Playlist from '../Playlist/Playlist.js';
+import { placeholder } from '@babel/types';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,17 @@ class App extends React.Component {
       { name: 'playlistName3', artist: 'playlistArtist3', album: 'playlistAlbum3', id: 6 }]
     }
   }
+
+  addTrack(track) {
+    let tracks = this.state.playlistTracks;
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    }
+
+    tracks.push(track);
+    this.setState({ playlistTracks: tracks });
+  }
+
   render() {
     return (
       <div>
@@ -32,7 +44,7 @@ class App extends React.Component {
         </div>
       </div>
     )
-  }
+  };
 }
 
 export default App;
