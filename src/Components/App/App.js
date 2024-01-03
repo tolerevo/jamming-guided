@@ -37,7 +37,7 @@ class App extends React.Component {
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
     tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
-    
+
     this.setState({ playlistTracks: tracks });
   }
 
@@ -46,8 +46,6 @@ class App extends React.Component {
   }
 
   savePlaylist() {
-    alert("this method is linked to the button correctly");
-    // eslint-disable-next-line
     const trackURIs = this.state.playlistTracks.map(track => track.uri);
   }
 
